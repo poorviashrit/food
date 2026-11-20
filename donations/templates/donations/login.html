@@ -1,0 +1,7 @@
+{% load static %}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login · FoodBridge</title><link rel="stylesheet" href="{% static 'donations/style.css' %}"></head><body class="auth-page">
+<header><a class="brand" href="{% url 'home' %}">🥬 foodbridge</a><span>LESS WASTE. MORE CARE.</span></header>
+<main class="auth-wrap"><section class="auth-card"><div class="auth-icon">👋</div><small>WELCOME BACK</small><h1>Login to FoodBridge</h1><p class="muted">Sign in to share food and help rescue surplus meals.</p>
+{% if form.errors %}<div class="form-error">Your username or password is incorrect. Please try again.</div>{% endif %}
+<form method="post">{% csrf_token %}<input type="hidden" name="next" value="{{ next }}"><label for="id_username">Username</label><input id="id_username" name="username" type="text" autocomplete="username" required autofocus><label for="id_password">Password</label><input id="id_password" name="password" type="password" autocomplete="current-password" required><button class="primary auth-submit" type="submit">Login →</button></form>
+<p class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Create one</a></p><a class="back-home" href="{% url 'home' %}">← Back to homepage</a></section></main></body></html>

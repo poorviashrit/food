@@ -1,0 +1,6 @@
+{% load static %}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create account · FoodBridge</title><link rel="stylesheet" href="{% static 'donations/style.css' %}"></head><body class="auth-page">
+<header><a class="brand" href="{% url 'home' %}">🥬 foodbridge</a><span>LESS WASTE. MORE CARE.</span></header>
+<main class="auth-wrap"><section class="auth-card"><div class="auth-icon">🌱</div><small>JOIN THE COMMUNITY</small><h1>Create an account</h1><p class="muted">Become part of a community that shares food and reduces waste.</p>
+<form method="post">{% csrf_token %}{% for field in form %}<label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<div class="field-help">{{ field.help_text|safe }}</div>{% endif %}{% for error in field.errors %}<div class="form-error">{{ error }}</div>{% endfor %}{% endfor %}{% for error in form.non_field_errors %}<div class="form-error">{{ error }}</div>{% endfor %}<button class="primary auth-submit" type="submit">Create account →</button></form>
+<p class="auth-switch">Already registered? <a href="{% url 'login' %}">Login</a></p><a class="back-home" href="{% url 'home' %}">← Back to homepage</a></section></main></body></html>

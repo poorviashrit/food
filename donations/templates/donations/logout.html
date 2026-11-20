@@ -1,0 +1,4 @@
+{% load static %}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Logout · FoodBridge</title><link rel="stylesheet" href="{% static 'donations/style.css' %}"></head><body class="auth-page">
+<header><a class="brand" href="{% url 'home' %}">🥬 foodbridge</a><span>LESS WASTE. MORE CARE.</span></header>
+<main class="auth-wrap"><section class="auth-card logout-card"><div class="auth-icon">👋</div><small>SEE YOU SOON</small><h1>Ready to log out?</h1><p class="muted">You can come back anytime to help rescue surplus food.</p><form method="post">{% csrf_token %}<button class="primary auth-submit" type="submit">Yes, logout</button></form><a class="back-home" href="{% url 'home' %}">Cancel and return home</a></section></main></body></html>
